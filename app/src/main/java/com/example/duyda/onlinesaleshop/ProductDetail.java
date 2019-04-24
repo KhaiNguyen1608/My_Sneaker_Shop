@@ -40,7 +40,7 @@ import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public class ProductDetail extends AppCompatActivity implements RatingDialogListener {
 
-    TextView product_name, product_price, product_description;
+    TextView product_name, product_price, product_description, product_size_number, product_size;
     ImageView product_image;
     CollapsingToolbarLayout collapsingToolbarLayout;
     FloatingActionButton btnCart, btnRating;
@@ -71,10 +71,7 @@ public class ProductDetail extends AppCompatActivity implements RatingDialogList
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/my_font.otf")
-                .setFontAttrId(R.attr.fontPath)
-                .build());
+
 
         setContentView(R.layout.activity_product_detail);
 
@@ -102,6 +99,7 @@ public class ProductDetail extends AppCompatActivity implements RatingDialogList
                 new Database(getBaseContext()).addToCart(new Order(
                         productId,
                         currentProduct.getName(),
+                        currentProduct.getSize(),
                         btnNumber.getNumber(),
                         currentProduct.getPrice(),
                         currentProduct.getDiscount()
@@ -115,6 +113,9 @@ public class ProductDetail extends AppCompatActivity implements RatingDialogList
         product_price = findViewById(R.id.product_price);
 
         product_image = findViewById(R.id.img_product);
+
+        product_size = findViewById(R.id.product_size);
+        product_size_number = findViewById(R.id.product_size_number);
 
         collapsingToolbarLayout = findViewById(R.id.collapsing);
         collapsingToolbarLayout.setExpandedTitleTextAppearance(R.style.ExpandedAppbar);
@@ -188,6 +189,7 @@ public class ProductDetail extends AppCompatActivity implements RatingDialogList
                 collapsingToolbarLayout.setTitle(currentProduct.getName());
                 product_price.setText(currentProduct.getPrice());
                 product_name.setText(currentProduct.getName());
+                product_size_number.setText(currentProduct.getSize());
                 product_description.setText(currentProduct.getDescription());
             }
 

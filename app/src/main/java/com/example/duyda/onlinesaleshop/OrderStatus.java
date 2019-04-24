@@ -50,10 +50,7 @@ public class OrderStatus extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        CalligraphyConfig.initDefault(new CalligraphyConfig.Builder()
-                .setDefaultFontPath("fonts/my_font.otf")
-                .setFontAttrId(R.attr.fontPath)
-                .build());
+
 
 
         setContentView(R.layout.activity_order_status);

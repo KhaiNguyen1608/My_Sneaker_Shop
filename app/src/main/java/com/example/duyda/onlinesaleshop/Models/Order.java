@@ -1,11 +1,15 @@
 package com.example.duyda.onlinesaleshop.Models;
 
 public class Order {
-    private String ProductId, ProductName, Quantity, Price, Discount;
+    private String ProductId, ProductName, Size, Quantity, Price, Discount;
 
-    public Order(String productId, String productName, String quantity, String price, String discount) {
+    public Order() {
+    }
+
+    public Order(String productId, String productName, String size, String quantity, String price, String discount) {
         ProductId = productId;
         ProductName = productName;
+        Size = size;
         Quantity = quantity;
         Price = price;
         Discount = discount;
@@ -25,6 +29,14 @@ public class Order {
 
     public void setProductName(String productName) {
         ProductName = productName;
+    }
+
+    public String getSize() {
+        return Size;
+    }
+
+    public void setSize(String size) {
+        Size = size;
     }
 
     public String getQuantity() {
@@ -49,8 +61,5 @@ public class Order {
 
     public void setDiscount(String discount) {
         Discount = discount;
-    }
-
-    public Order() {
     }
 }

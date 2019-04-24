@@ -23,7 +23,7 @@ public class Database extends SQLiteAssetHelper {
         SQLiteDatabase db = getReadableDatabase();
         SQLiteQueryBuilder qb = new SQLiteQueryBuilder();
 
-        String[] sqlSelect = {"ProductId", "ProductName", "Quantity", "Price", "Discount"};
+        String[] sqlSelect = {"ProductId", "ProductName", "Size", "Quantity", "Price", "Discount"};
         String sqlTable = "OrderDetail";
 
         qb.setTables(sqlTable);
@@ -34,6 +34,7 @@ public class Database extends SQLiteAssetHelper {
             do {
                 result.add(new Order(c.getString(c.getColumnIndex("ProductId")),
                         c.getString(c.getColumnIndex("ProductName")),
+                        c.getString(c.getColumnIndex("Size")),
                         c.getString(c.getColumnIndex("Quantity")),
                         c.getString(c.getColumnIndex("Price")),
                         c.getString(c.getColumnIndex("Discount"))
@@ -45,9 +46,10 @@ public class Database extends SQLiteAssetHelper {
 
     public void addToCart(Order order) {
         SQLiteDatabase db = getReadableDatabase();
-        String query = String.format("INSERT INTO OrderDetail(ProductId,ProductName,Quantity,Price,Discount) Values('%s','%s','%s','%s','%s') ",
+        String query = String.format("INSERT INTO OrderDetail(ProductId,ProductName,Size,Quantity,Price,Discount) Values('%s','%s','%s','%s','%s','%s') ",
                 order.getProductId(),
                 order.getProductName(),
+                order.getSize(),
                 order.getQuantity(),
                 order.getPrice(),
                 order.getDiscount());
@@ -63,7 +65,6 @@ public class Database extends SQLiteAssetHelper {
     //Favorite
     private static final String FAVORITES_TABLE = "CREATE TABLE IF NOT EXISTS Favorites" +
             "(ProductId TEXT PRIMARY KEY)";
-
 
 
     public void addToFavorites(String productId) {

@@ -165,17 +165,44 @@
                         android:isIndicator="true"
                         android:max="5"
                         android:rating="0" />
-
-                    <TextView
-                        android:id="@+id/product_description"
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="12dp"
-                        android:lineSpacingMultiplier="1.5"
-                        android:padding="12dp"
-                        android:text="Description"
-                        android:textColor="@android:color/black"
-                        android:textSize="14sp" />
+                        android:orientation="horizontal"
+                        >
+                        <TextView
+                            android:id="@+id/product_size"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="Size"
+                            android:layout_marginStart="5dp"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+                        <TextView
+                            android:id="@+id/product_size_number"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="5"
+                            android:layout_marginStart="10dp"
+                            android:textSize="18sp"
+                            android:textStyle="bold"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+                        <TextView
+                            android:id="@+id/product_description"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:lineSpacingMultiplier="1.5"
+                            android:padding="12dp"
+                            android:text="Description"
+                            android:textColor="@android:color/black"
+                            android:textSize="14sp" />
+                    </LinearLayout>
+
 
                 </LinearLayout>
 

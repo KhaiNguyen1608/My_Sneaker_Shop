@@ -1,11 +1,12 @@
 package com.example.duyda.onlinesaleshop.Models;
 
 public class Product {
-    private String Name, Image, Description, Price, Discount, MenuId;
+    private String Name, Image, Size ,Description, Price, Discount, MenuId;
 
-    public Product(String name, String image, String description, String price, String discount, String menuId) {
+    public Product(String name, String image, String size, String description, String price, String discount, String menuId) {
         Name = name;
         Image = image;
+        Size = size;
         Description = description;
         Price = price;
         Discount = discount;
@@ -26,6 +27,14 @@ public class Product {
 
     public void setImage(String image) {
         Image = image;
+    }
+
+    public String getSize() {
+        return Size;
+    }
+
+    public void setSize(String size) {
+        Size = size;
     }
 
     public String getDescription() {
@@ -58,8 +67,5 @@ public class Product {
 
     public void setMenuId(String menuId) {
         MenuId = menuId;
-    }
-
-    public Product() {
     }
 }
